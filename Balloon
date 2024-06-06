@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rød Ballong</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .balloon {
+            width: 100px;
+            height: 150px;
+            background-color: red;
+            border-radius: 50% 50% 50% 50%;
+            position: absolute;
+            animation: sway 2s infinite;
+        }
+        .string {
+            width: 2px;
+            height: 100px;
+            background-color: gray;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            margin-left: -1px;
+        }
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon" id="balloon">
+        <div class="string"></div>
+    </div>
+    <script>
+        const balloon = document.getElementById('balloon');
+        balloon.addEventListener('click', () => {
+            balloon.style.animation = 'none';
+            balloon.style.backgroundColor = 'transparent';
+            balloon.style.borderRadius = '0';
+            balloon.style.width = '0';
+            balloon.style.height = '0';
+        });
+    </script>
+</body>
+</html>
